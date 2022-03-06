@@ -1,4 +1,4 @@
-package com.cos.blog.test;
+package com.cos.blog;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HttpControllerTest{
 
-  // http://localhost:8080/blog/http/get (select)
+  private static final String TAG = "HttpControllerTest :";
+
+  public String lombokTest() {
+    Member m = new Member(1, "sss", "1234", "email");
+    System.out.println(TAG + "getter:" + m.getId());
+    m.setId(5000);
+    System.out.println(TAG + "setter:" + m.getId());
+    return "lombok test 완료";
+  }
+
+  // http://localhost:8080/http/get (select)
   @GetMapping("/http/get")
   public String getTest(Member m) {
     return "get 요청 : "+m.getId()+","+m.getUserid()+","+m.getEmail();
