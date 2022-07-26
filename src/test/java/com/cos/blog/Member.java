@@ -3,7 +3,7 @@ package com.cos.blog;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-//@Getter
+//@Getter                                   //lombok - Getter자동생성
 //@Setter
 //@RequiredArgsConstructor    //final붙은 객체 생성자 만듦
 
