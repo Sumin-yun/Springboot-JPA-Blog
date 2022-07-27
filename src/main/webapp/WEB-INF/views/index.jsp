@@ -1,42 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ include file="layout/header.jsp"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
 
-<div class="container">
-
-<c:forEach var="board" items="${boards.content}">
-	<div class="card m-2">
-		<div class="card-body">
-			<h4 class="card-title">${board.title}</h4>
-			<a href="/board/${board.id}" class="btn btn-primary">상세보기</a>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="/blog">SuminLog</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#">로그인</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">회원가입</a></li>
+			</ul>
 		</div>
-	</div>
-</c:forEach>
+	</nav>
+	<br>
 
-<ul class="pagination justify-content-center">
-  <c:choose>
-  	<c:when test="${boards.first}">
-  		<li class="page-item disabled"><a class="page-link" href="?page=${boards.number-1}">Previous</a></li>
-  	</c:when>
-  	<c:otherwise>
-  		<li class="page-item"><a class="page-link" href="?page=${boards.number-1}">Previous</a></li>
-  	</c:otherwise>
-  </c:choose>
-  
-    <c:choose>
-  	<c:when test="${boards.last}">
-  		<li class="page-item disabled"><a class="page-link" href="?page=${boards.number+1}">Next</a></li>
-  	</c:when>
-  	<c:otherwise>
-  		<li class="page-item"><a class="page-link" href="?page=${boards.number+1}">Next</a></li>
-  	</c:otherwise>
-  </c:choose>
-  
-</ul>
+	<div class="container">
 	
+		<div class="card m-2" >
+			<div class="card-body">
+				<h4 class="card-title">제목</h4>
+				<p class="card-text">내용.</p>
+				<a href="#" class="btn btn-primary">상세보기</a>
+			</div>
+		</div>
+    <div class="card m-2" >
+    <div class="card-body">
+      <h4 class="card-title">제목</h4>
+      <p class="card-text">내용.</p>
+      <a href="#" class="btn btn-primary">상세보기</a>
+    </div>
+  </div>
+      <div class="card m-2" >
+    <div class="card-body">
+      <h4 class="card-title">제목</h4>
+      <p class="card-text">내용.</p>
+      <a href="#" class="btn btn-primary">상세보기</a>
+    </div>
+  </div>
+	</div>
 
+</body>
+<div class="jumbotron text-center" style="margin-bottom: 0">
+	<p>Created by Sumin</p>
+	<p>T:010-4747-6958</p>
+	<p>서울시 금천구 금하로 816</p>
 </div>
+</html>
 
-<%@ include file="layout/footer.jsp"%>
+
+
 
 
