@@ -24,7 +24,7 @@ public class DummyControllerTest {
     System.out.println("email" + user.getRole());
     System.out.println("email" + user.getCreateDate());
 
-    user.setRole(RoleType.User);
+    user.setRole(RoleType.USER);
     userRepository.save(user);
     return "회원가입이 완료되었습니다";
   }
