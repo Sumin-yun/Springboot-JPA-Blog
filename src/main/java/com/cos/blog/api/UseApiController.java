@@ -16,7 +16,6 @@ public class UseApiController {
   @Autowired
   private UserService userService;
 
-
   @PostMapping("/api/user")
   public ResponseDto<Integer> save(@RequestBody User user) {
     System.out.println("USER apiController : save 호출");
@@ -25,5 +24,16 @@ public class UseApiController {
     int result = userService.회원가입(user);
     return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
   }
+
+//    @PostMapping("/api/user/login")
+//    public ResponseDto<Integer> login (@RequestBody User user, HttpSession session){
+//      System.out.println("UserApiContoroller : login 호출됨");
+//      User principal = userService.로그인(user);        //principal = 접근주체
+//  
+//      if(principal != null) {
+//        session.setAttribute("principal", principal);
+//      }
+//      return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+//    }
 
 }
