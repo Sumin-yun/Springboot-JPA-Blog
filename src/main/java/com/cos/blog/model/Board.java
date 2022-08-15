@@ -12,9 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@NoArgsConstructor  //빈생성자
+@AllArgsConstructor
+@Builder
 @Entity
 public class Board {
 
@@ -28,7 +34,6 @@ public class Board {
   @Lob                                           //대용량 데이터 다룰떄 사용 
   private String content;            //섬머노트 라이브러리 툴 사용:  <html> 태그가 섞여서 디자인 됨 
 
-  @ColumnDefault("0")
   private int count;                    //조회
 
   @ManyToOne(fetch = FetchType.EAGER)                        //1대 다 관계 설정
@@ -41,6 +46,5 @@ public class Board {
 
   @CreationTimestamp            //빌드할때 현재시간을 자동으로 업데이트
   private Timestamp createDate;
-
 
 }
