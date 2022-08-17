@@ -11,6 +11,11 @@ import lombok.Getter;
 //스프링 시큐리티의 고유한 세션장소에 저장.
 @Getter
 public class PrincipalDetail implements UserDetails{
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+
   private User user;              //콤포지션
 
   public PrincipalDetail(User user) {
