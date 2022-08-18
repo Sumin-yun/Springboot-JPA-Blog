@@ -3,8 +3,11 @@ let index = {
       $("#btn-save").on("click", ()=> {     //function(){}, ()=> this 바인딩 하기 위함. =>를 사용해야 윈도우 객체를 가리킴.
         this.save();
       });
-        $("#btn-delete").on("click", ()=> {     //function(){}, ()=> this 바인딩 하기 위함. =>를 사용해야 윈도우 객체를 가리킴.
+        $("#btn-delete").on("click", ()=> {     
         this.deleteById();
+      });
+       $("#btn-update").on("click", ()=> {    
+        this.update();
       });
     },
     
@@ -34,14 +37,38 @@ let index = {
     
   //////////삭제
      deleteById: function(){
-        var id = $("#id").text();
+        let  id = $("#id").text();
 
       $.ajax({
           type:"DELETE",
           url:"/api/board/"+id,
           dataType:"json"               //요청을 서버로해서 응답이 왔을때 기본적으로 모든 것이 문자열 (생긴게 json이라면) 
         }).done(function(resp){
-          alert("삭제가 완료되었습니다,");
+          alert("삭제가 완료되었습니다.");
+          location.href = "/";
+        }).fail(function(error){
+          alert(JSON.stringify(error));
+        }); 
+    },
+    
+     //////////수정 
+      update:function(){
+      let id = $("#id").val();
+      
+      let data = {
+        title:$("#title").val(),
+        content: $("#content").val()
+      };
+     
+     $.ajax({
+          type:"PUT",
+          url:"/api/board/"+id,
+          data:JSON.stringify(data),     
+          contentType: "application/json; charset=utf-8",
+          dataType:"json"            
+        }).done(function(resp){
+          alert("수정이 완료되었습니다.");
+          console.log(resp);
           location.href = "/";
         }).fail(function(error){
           alert(JSON.stringify(error));
