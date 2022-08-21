@@ -47,7 +47,6 @@ public class UserService {
     persistance.setEmail(user.getEmail());
   }
 
-
 }
 
 //  @Transactional(readOnly = true)
